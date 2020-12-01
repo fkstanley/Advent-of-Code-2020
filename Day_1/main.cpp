@@ -39,6 +39,7 @@ int main(int argc, const char * argv[]) {
     }
     
     std::cout << value1 * value2 * value3 << std::endl;
-    
+    input.close();
+
     return 0;
 }
