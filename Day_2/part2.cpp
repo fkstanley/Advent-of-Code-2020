@@ -21,8 +21,6 @@ int main(int argc, const char * argv[]) {
     int count = 0;
     std::string numbers, character, pattern;
     while (input >> numbers >> character >> pattern) {
-        std::cout << numbers << " " << character[0] << " " << pattern << std::endl;
-        
         std::istringstream f(numbers);
         std::string s;
         int numbers[2];
@@ -32,12 +30,9 @@ int main(int argc, const char * argv[]) {
             ++index;
         }
 
-        std::cout << pattern[numbers[0]] << std::endl;
-        std::cout << pattern[numbers[1]] << std::endl;
         bool check1 = character[0] == pattern[numbers[0]];
         bool check2 = character[0] == pattern[numbers[1]];
         if (check1 ^ check2) {
-            std::cout << "count" << std::endl;
             ++count;
         }
         

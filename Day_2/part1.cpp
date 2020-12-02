@@ -19,22 +19,19 @@ int main(int argc, const char * argv[]) {
     }
     
     int count = 0;
-    std::string numbers, character, pattern;
-    while (input >> numbers >> character >> pattern) {
-        std::cout << numbers << " " << character[0] << " " << pattern << std::endl;
-        
-        std::istringstream f(numbers);
+    std::string min_max, character, pattern;
+    while (input >> min_max >> character >> pattern) {
+        std::istringstream f(min_max);
         std::string s;
-        int numbers[2];
+        int min_max[2];
         int index = 0;
         while (std::getline(f, s, '-')) {
-            numbers[index] = std::stoi(s);
+            min_max[index] = std::stoi(s);
             ++index;
         }
 
         size_t n = std::count(pattern.begin(), pattern.end(), character[0]);
-        std::cout << n << std::endl;
-        if (n >= numbers[0] && n <= numbers[1]) {
+        if (n >= min_max[0] && n <= min_max[1]) {
             ++count;
         }
     }
