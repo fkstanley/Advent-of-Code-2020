@@ -19,19 +19,19 @@ int main(int argc, const char * argv[]) {
     }
     
     int count = 0;
-    std::string numbers, character, pattern;
-    while (input >> numbers >> character >> pattern) {
+    std::string numbers, character, password;
+    while (input >> numbers >> character >> password) {
         std::istringstream f(numbers);
         std::string s;
-        int numbers[2];
+        int min_max[2];
         int index = 0;
         while (std::getline(f, s, '-')) {
-            numbers[index] = std::stoi(s) - 1;
+            min_max[index] = std::stoi(s) - 1;
             ++index;
         }
 
-        bool check1 = character[0] == pattern[numbers[0]];
-        bool check2 = character[0] == pattern[numbers[1]];
+        bool check1 = character[0] == password[min_max[0]];
+        bool check2 = character[0] == password[min_max[1]];
         if (check1 ^ check2) {
             ++count;
         }

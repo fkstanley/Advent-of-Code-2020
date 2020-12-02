@@ -19,8 +19,8 @@ int main(int argc, const char * argv[]) {
     }
     
     int count = 0;
-    std::string min_max, character, pattern;
-    while (input >> min_max >> character >> pattern) {
+    std::string min_max, character, password;
+    while (input >> min_max >> character >> password) {
         std::istringstream f(min_max);
         std::string s;
         int min_max[2];
@@ -30,7 +30,7 @@ int main(int argc, const char * argv[]) {
             ++index;
         }
 
-        size_t n = std::count(pattern.begin(), pattern.end(), character[0]);
+        size_t n = std::count(password.begin(), password.end(), character[0]);
         if (n >= min_max[0] && n <= min_max[1]) {
             ++count;
         }
