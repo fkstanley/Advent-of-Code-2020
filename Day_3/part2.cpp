@@ -9,7 +9,7 @@
 #include <fstream>
 #include <vector>
 
-long traverseSlope(std::vector<std::string> map, int x_step, int y_step) {
+long traverseSlope(std::vector<std::string> & map, int x_step, int y_step) {
     int sizeOfLine = map[0].length();
     int x = 0, y = 0;
     long count = 0;
