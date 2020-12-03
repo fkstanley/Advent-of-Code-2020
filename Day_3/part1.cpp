@@ -1,8 +1,8 @@
 //
-//  main.cpp
-//  Day_2
+//  part1.cpp
+//  Day_3
 //
-//  Created by Fiona Stanley on 02/12/2020.
+//  Created by Fiona Stanley on 03/12/2020.
 //
 
 #include <iostream>
