@@ -10,22 +10,22 @@
 #include <map>
 #include <sstream>
 
-bool isValidBYR(std::string & byr) {
+bool isValidBYR(const std::string & byr) {
     if(byr.length() != 4 || std::stoi(byr) < 1920 || std::stoi(byr) > 2002) return false;
     return true;
 }
 
-bool isValidIYR(std::string iyr) {
+bool isValidIYR(const std::string & iyr) {
     if(iyr.length() != 4 || std::stoi(iyr) < 2010 || std::stoi(iyr) > 2020) return false;
     return true;
 }
 
-bool isValidEYR(std::string eyr) {
+bool isValidEYR(const std::string & eyr) {
     if(eyr.length() != 4 || std::stoi(eyr) < 2020 || std::stoi(eyr) > 2030) return false;
     return true;
 }
 
-bool isValidHGT(std::string hgt) {
+bool isValidHGT(const std::string & hgt) {
     std::string measurement = hgt.substr(hgt.length() - 2, hgt.length());
     std::string value = hgt.substr(0, hgt.length() - 2);
 
@@ -40,18 +40,18 @@ bool isValidHGT(std::string hgt) {
     return true;
 }
 
-bool isValidHCL(std::string hcl) {
+bool isValidHCL(const std::string & hcl) {
     if(hcl.length() != 7 || hcl[0] != '#' || hcl.find_first_not_of("#0123456789abcdef") != std::string::npos) return false;
     return true;
 }
 
-bool isValidECL(std::string ecl) {
+bool isValidECL(const std::string & ecl) {
 
     if(ecl != "amb" && ecl != "blu" && ecl != "brn" && ecl != "gry" && ecl != "grn" && ecl != "hzl" && ecl != "oth") return false;
     return true;
 }
 
-bool isValidPID(std::string pid) {
+bool isValidPID(const std::string & pid) {
     if(pid.length() != 9 || pid.find_first_not_of("0123456789") != std::string::npos) return false;
     return true;
 }
