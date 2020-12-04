@@ -28,15 +28,15 @@ bool isValidEYR(std::string eyr) {
 bool isValidHGT(std::string hgt) {
     if(hgt.find("in") == std::string::npos && hgt.find("cm") == std::string::npos) return false;
 
-    if(hgt.find("cm") != std::string::npos) {
-        int index = hgt.find("cm");
-        std::string height = hgt.substr(0, index);
-        if (stoi(height) < 150 || stoi(height) > 193) return false;
-    } else if (hgt.find("in") != std::string::npos) {
-        int index = hgt.find("in");
-        std::string height = hgt.substr(0, index);
-        if (stoi(height) < 59 || stoi(height) > 76) return false;
+    std::string measurement = hgt.substr(hgt.length() - 2, hgt.length());
+    std::string value = hgt.substr(0, hgt.length() - 2);
+
+    if (measurement == "cm") {
+        if (stoi(value) < 150 || stoi(value) > 193) return false;
+    } else if (measurement == "in") {
+        if (stoi(value) < 59 || stoi(value) > 76) return false;
     }
+
     return true;
 }
 
@@ -46,6 +46,7 @@ bool isValidHCL(std::string hcl) {
 }
 
 bool isValidECL(std::string ecl) {
+
     if(ecl != "amb" && ecl != "blu" && ecl != "brn" && ecl != "gry" && ecl != "grn" && ecl != "hzl" && ecl != "oth") return false;
     return true;
 }
