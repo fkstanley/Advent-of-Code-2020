@@ -26,10 +26,10 @@ bool isValidEYR(std::string eyr) {
 }
 
 bool isValidHGT(std::string hgt) {
-    if(hgt.find("in") == std::string::npos && hgt.find("cm") == std::string::npos) return false;
-
     std::string measurement = hgt.substr(hgt.length() - 2, hgt.length());
     std::string value = hgt.substr(0, hgt.length() - 2);
+
+    if(measurement != "cm" && measurement != "in") return false;
 
     if (measurement == "cm") {
         if (stoi(value) < 150 || stoi(value) > 193) return false;
