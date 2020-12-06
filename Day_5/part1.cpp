@@ -29,11 +29,18 @@ int main(int argc, const char * argv[]) {
 
         unsigned long row = std::bitset<8>(line.substr(0, 7)).to_ulong();
         unsigned long column = std::bitset<8>(line.substr(7, line.length())).to_ulong();
-        
+
         seatIDs.push_back(row * 8 + column);
     }
 
-    std::cout << *std::max_element(seatIDs.begin(), seatIDs.end()) << std::endl;
+    std::sort(seatIDs.begin(), seatIDs.end());
+
+    int mySeat = 0;
+    for (int i = 1; i < seatIDs.size(); i ++) {
+        if (seatIDs[i] - 2 == seatIDs[i - 1]) mySeat = seatIDs[i] - 1;
+    }
+
+    std::cout << mySeat << std::endl;
 
     input.close();
 
