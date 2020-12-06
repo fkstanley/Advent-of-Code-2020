@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
 
         unsigned long row = std::bitset<8>(line.substr(0, 7)).to_ulong();
         unsigned long column = std::bitset<8>(line.substr(7, line.length())).to_ulong();
-        
+
         seatIDs.push_back(row * 8 + column);
     }
 
